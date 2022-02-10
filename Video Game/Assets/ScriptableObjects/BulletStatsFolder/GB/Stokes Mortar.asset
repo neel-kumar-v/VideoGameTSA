@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Stokes Mortar
+  m_EditorClassIdentifier: 
+  gunName: Stokes Mortar
+  gunInfo: While mortars largely fell out of interest prior to World War 1, the stalemate
+    of trench warfare forced national armies to revisit its battlefield value. Mortars
+    had been in use for centuries prior and were "indirect fire" weapons capable
+    of engaging enemy forces not only at distance but also without line of sight.
+    They were generally large, heavy, and cumbersome. The British Stokes Mortar (3-inch)
+    was one of the most famous of the early modern light mortars. It was drawn up
+    by English engineer Sir Wilfred Stokes and greatly helped during World War 1.
+  bullet: {fileID: 5505317474469831756, guid: 1a041355b39416f41805310250cfaa28, type: 3}
+  bulletObj: {fileID: 7572027801372095415, guid: 1a041355b39416f41805310250cfaa28,
+    type: 3}
+  price: 4500

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: HotchKiss
+  m_EditorClassIdentifier: 
+  gunName: Hotchkiss Revolver
+  gunInfo: "The French war industry was forced to keep pace with the demand during
+    World War 1. The French Army turned to a modernized version of the Model 1900
+    machine gun, which introduced refined internals and lacked the safety system
+    of the original, the Model 1914. They made a better stiff 24-round metal ammunition
+    strip.  And developed three-round clips which could be linked together to form
+    a full 249-round weapon. It was not as light as people hoped, but it still could
+    be set up in a defensive manner. Over 47,000 Model 1914 units were delivered
+    to the French Army during World War 1 up until the end of fighting in November
+    of 1918.\r"
+  bullet: {fileID: 9138450117475225560, guid: cdf20f3a11076064fa3f1edb7b375361, type: 3}
+  bulletObj: {fileID: 3632962583391692161, guid: cdf20f3a11076064fa3f1edb7b375361,
+    type: 3}
+  price: 2300

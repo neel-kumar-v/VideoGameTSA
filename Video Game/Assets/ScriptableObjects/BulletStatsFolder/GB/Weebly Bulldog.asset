@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Weebly Bulldog
+  m_EditorClassIdentifier: 
+  gunName: Webley Bulldog
+  gunInfo: The British Webley Bull Dog pocket revolver was a small, powerful firearm
+    that saw considerable commercial success in a variety of forms. It was introduced
+    in 1872 by Philip Webley and Son of Birmingham, England. It was popular and produced
+    well into the 1900s and copied around the world. As a "pocket" revolver, the
+    firearm was specifically designed to be small and compact, able to be concealed
+    in the pocket of a user's coat and it was inexpensive.
+  bullet: {fileID: 9138450117475225560, guid: 68fdc140140b97145a0ee00c90c72693, type: 3}
+  bulletObj: {fileID: 3632962583391692161, guid: 68fdc140140b97145a0ee00c90c72693,
+    type: 3}
+  price: 325

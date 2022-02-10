@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Lewis
+  m_EditorClassIdentifier: 
+  gunName: Lewis LMG
+  gunInfo: Named after Isaac Newton Lewis who served in the United States Army. It
+    served as a fixed defensive weapon, an aerial machine gun and as a Light Machine
+    Gun (LMG) at the infantry level in World War 1, World War 2 and was in limited
+    use during the Korean War. American didn't like the weapon at first, which caused
+    Lewis to take the development to Europe before America adopted the weapon.
+  bullet: {fileID: 9138450117475225560, guid: 8b29c812e644b2046bd4d20b2a2263e8, type: 3}
+  bulletObj: {fileID: 3632962583391692161, guid: 8b29c812e644b2046bd4d20b2a2263e8,
+    type: 3}
+  price: 4500

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Fedororv
+  m_EditorClassIdentifier: 
+  gunName: Fedorov Avtomat
+  gunInfo: While bolt-action rifles were the call of the day at the turn of the century
+    and leading into World War 1, Vladimir Fyodorov was one of many gunsmiths that
+    looked to develop a select-fire weapon. He made the weapon and started working
+    on the magazine for it. To minimize development delays on the magazine and increase
+    the chances of the Russian Army, the Fedorov cartridge idea was dropped and the
+    Japanese Arisaka cartridge. It held less power but was smaller, allowing a greater
+    ammunition load, and putting less stress on the internal components particularly
+    during automatic fire. The weapon was given the common name of Fedorov Avtomat
+    and some were used during World War 1; however, many were not received due to
+    the Russian Civil War.
+  bullet: {fileID: 9138450117475225560, guid: ef3ee4ca3e2106b4a861c2ae5464afc1, type: 3}
+  bulletObj: {fileID: 3632962583391692161, guid: ef3ee4ca3e2106b4a861c2ae5464afc1,
+    type: 3}
+  price: 400

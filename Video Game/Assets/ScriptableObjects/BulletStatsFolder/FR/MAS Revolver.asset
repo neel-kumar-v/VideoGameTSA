@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: MAS Revolver
+  m_EditorClassIdentifier: 
+  gunName: MAS Revolver
+  gunInfo: "The MAS Modele 1892 revolver was selected by French military authorities
+    to replace the aging MAS Modele 1873 revolver line. Roughly 337,000 examples
+    were produced by Manufacture d-Armes de Saint-Etienne (MAS) and many went on
+    to see service throughout World War 1 and even into World War 2. The Modele 1982
+    made use of the smaller 8mm French Ordnance round which originally appeared in
+    black-powder form before evolving to a smokeless powder design. The weapon could
+    be fired through a Single-Action or Double-Action operation, the former requiring
+    the user to work the hammer while the latter requiring just a complete trigger
+    pull.\r"
+  bullet: {fileID: 9138450117475225560, guid: 0a900b3660a020442ada764274dbd92c, type: 3}
+  bulletObj: {fileID: 3632962583391692161, guid: 0a900b3660a020442ada764274dbd92c,
+    type: 3}
+  price: 450

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Bergmann
+  m_EditorClassIdentifier: 
+  gunName: Bergmann MP18/I
+  gunInfo: "For the Germans, victory in World War 1 was becoming an evermore elusive
+    prospect in 1918. Engineer, Hugo Schmeisser, began work on a compact automatic
+    weapon for the war as early as 1916 though the blowback action of his design
+    dated as far back as the late 1890s. It\u2019s magazines were circular drum magazines
+    which people called \u201Csnail\" magazines because of its appearance and the
+    weapon was formally known as the Maschinenpistole 18/I, otherwise known as the
+    MP18/I or MP18."
+  bullet: {fileID: 9138450117475225560, guid: 4e4edb6ba36a9404c8bd0e8fd72015b3, type: 3}
+  bulletObj: {fileID: 3632962583391692161, guid: 4e4edb6ba36a9404c8bd0e8fd72015b3,
+    type: 3}
+  price: 2300
