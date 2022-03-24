@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -160,6 +161,7 @@ public class GameManager : MonoBehaviour
         enemyHealth.regenSpeed = 1f + multiplier - 1;
         enemyMovement.speed = enemyMovement.speed + enemySpeedScaling * multiplier;
 
+        RandomObstacleScene();
 
         // -- SCALING --
         // Bullet bullet = enemyMovement.bullet.GetComponent<Bullet>();
@@ -167,6 +169,43 @@ public class GameManager : MonoBehaviour
         // bullet.speed = bullet.speed + enemyDamageScaling * multiplier;
         StartCoroutine(CountdownCoroutine());
     }
+
+    public void RandomObstacleScene() {
+        if(SceneManager.sceneCount == 1) {
+            ReloadObstacleScene();
+            return;
+        }
+
+        UnloadObstacleScene();
+
+        ReloadObstacleScene();
+    }
+
+    public void ReloadObstacleScene() {
+        int index = Random.Range(2,5);
+        SceneManager.LoadScene(index, LoadSceneMode.Additive);
+    }
+
+    public void UnloadObstacleScene() {
+        if(SceneManager.GetSceneByName("ObstSce1") == SceneManager.GetSceneByBuildIndex(2)) {
+            SceneManager.UnloadSceneAsync("ObstSce1");
+        }
+
+        if(SceneManager.GetSceneByName("ObstSce2") == SceneManager.GetSceneByBuildIndex(3)) {
+            SceneManager.UnloadSceneAsync("ObstSce2");
+        }
+
+        if(SceneManager.GetSceneByName("ObstSce3") == SceneManager.GetSceneByBuildIndex(4)) {
+            SceneManager.UnloadSceneAsync("ObstSce3");
+        }
+
+        if(SceneManager.GetSceneByName("ObstSce4") == SceneManager.GetSceneByBuildIndex(5)) {
+            SceneManager.UnloadSceneAsync("ObstSce4");
+        }
+    }
+    
+
+
 
     public void UpdateCountryByRound() {
         if(rounds == 6) {

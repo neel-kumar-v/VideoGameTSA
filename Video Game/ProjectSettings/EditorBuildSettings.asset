@@ -11,6 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/ObstSce1.unity
+    guid: 3816680d20317454ba968700c20f7deb
+  - enabled: 1
+    path: Assets/Scenes/ObstSce2.unity
+    guid: 81c8b79a2ca79eb479e31d82d45d5bc2
+  - enabled: 1
+    path: Assets/Scenes/ObstSce3.unity
+    guid: 593d96dff92fcab40834c24cbd6f04f1
+  - enabled: 1
+    path: Assets/Scenes/ObstSce4.unity
+    guid: e1fc47ab082b78a4ebf3d73db173adea
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d73608a165c904a45b6931a57bfa2098,
       type: 2}
