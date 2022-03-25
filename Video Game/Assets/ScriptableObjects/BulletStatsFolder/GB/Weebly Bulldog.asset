@@ -23,3 +23,4 @@ MonoBehaviour:
   bulletObj: {fileID: 3632962583391692161, guid: 68fdc140140b97145a0ee00c90c72693,
     type: 3}
   price: 325
+  fov: 50

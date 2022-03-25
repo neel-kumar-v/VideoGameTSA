@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Health : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class Health : MonoBehaviour
     public Gradient color;
     public Slider armorBar;
     public float smoothStep;
+    public Volume volume;
     [Space(10)]
     public GameObject deadFx;
     [Space(10)]
@@ -100,7 +103,41 @@ public class Health : MonoBehaviour
     public void DamageHealth(float damage) {
         health -= damage;
         CheckHealth(); // check if we're dead
-        // TODO: make a coroutine that turns off regen for a few seconds after we know we have taken damage, that way we can make regen faster and more fun without it being broken
+        StartCoroutine(PauseRegen());
+    }
+
+    public IEnumerator PauseRegen() {
+        canRegen = false;
+        if(isPlayer) {
+            if(!volume.sharedProfile.TryGet<Vignette>(out var vignette)) { vignette = volume.sharedProfile.Add<Vignette>(false); }
+            BlendInVignette(0.2f, vignette);
+        }
+        
+        yield return new WaitForSeconds(2f);
+        if(isPlayer) {
+            if(!volume.sharedProfile.TryGet<Vignette>(out var vignette)) { vignette = volume.sharedProfile.Add<Vignette>(false); }
+            BlendOutVignette(0.2f, vignette);
+        }
+        canRegen = true;
+    }
+
+    public IEnumerator BlendInVignette(float duration, Vignette vignette) {
+        float elapsed = 0f;
+        while (elapsed < duration) {
+            vignette.color.value = new Color(Mathf.Lerp(0f, 1f, elapsed / duration), 0f, 0f, 1f);
+            vignette.intensity.value = Mathf.Lerp(0.18f, 0.3f, elapsed / duration);
+            elapsed += Time.deltaTime;
+        }
+        yield return null;
+    }
+    public IEnumerator BlendOutVignette(float duration, Vignette vignette) {
+        float elapsed = 0f;
+        while (elapsed < duration) {
+            vignette.color.value = new Color(Mathf.Lerp(1f, 0f, elapsed / duration), 0f, 0f, 1f);
+            vignette.intensity.value = Mathf.Lerp(0.3f, 0.18f, elapsed / duration);
+            elapsed += Time.deltaTime;
+        }
+        yield return null;
     }
 
     public void CheckHealth() {

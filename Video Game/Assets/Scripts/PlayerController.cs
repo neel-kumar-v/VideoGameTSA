@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Unity Setup")]
     public Rigidbody rb;
     public Camera cam;
+    public CameraShake shake;
     [Space(15)]
     public GameObject bullet;
     public Transform firePoint;
@@ -39,7 +40,11 @@ public class PlayerController : MonoBehaviour
 
     public Bullet b;
 
+<<<<<<< Updated upstream
     public bool canGrenadeShoot;
+=======
+    public CameraFollow follow;
+>>>>>>> Stashed changes
 
 
     public void Awake() {
@@ -96,6 +101,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        follow.Follow();
         if(!canMove) return;
         Move();
     }
@@ -130,6 +136,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator Shoot(float time) {
         GameObject newBullet = (GameObject) Instantiate(bullet, firePoint.position, firePoint.rotation); 
         newBullet.GetComponent<Bullet>().player = true;
+        StartCoroutine(shake.Shake(0.5f, 0.01f * b.damage));
         yield return new WaitForSeconds(time);
         canShoot = true;
     }

@@ -26,11 +26,11 @@ public class GameManager : MonoBehaviour
     public string[] countries;
     string enemyCountry;
     [HideInInspector] public List<string> enemyCountries;
-    public BulletStats[] usa;
-    public BulletStats[] ger;
-    public BulletStats[] fra;
-    public BulletStats[] gb;
-    public BulletStats[] rus;
+        public BulletStats[] usa;
+        public BulletStats[] ger;
+        public BulletStats[] fra;
+        public BulletStats[] gb;
+        public BulletStats[] rus;
     [HideInInspector] public BulletStats weapon;
 
     [Space(10)] public GameObject[] weaponItems;
