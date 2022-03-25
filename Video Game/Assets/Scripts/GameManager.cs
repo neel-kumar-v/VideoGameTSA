@@ -184,24 +184,28 @@ public class GameManager : MonoBehaviour
     public void ReloadObstacleScene() {
         int index = Random.Range(2,5);
         SceneManager.LoadScene(index, LoadSceneMode.Additive);
+        playerMovement.Reset();
+        enemyMovement.Reset();
     }
 
     public void UnloadObstacleScene() {
-        if(SceneManager.GetSceneByName("ObstSce1") == SceneManager.GetSceneByBuildIndex(2)) {
-            SceneManager.UnloadSceneAsync("ObstSce1");
-        }
+        // if(SceneManager.GetSceneByName("ObstSce1") == SceneManager.GetSceneByBuildIndex(2)) {
+        //     SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("ObstSce1").buildIndex);
+        // }
 
-        if(SceneManager.GetSceneByName("ObstSce2") == SceneManager.GetSceneByBuildIndex(3)) {
-            SceneManager.UnloadSceneAsync("ObstSce2");
-        }
+        // if(SceneManager.GetSceneByName("ObstSce2") == SceneManager.GetSceneByBuildIndex(3)) {
+        //     SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("ObstSce2").buildIndex);
+        // }
 
-        if(SceneManager.GetSceneByName("ObstSce3") == SceneManager.GetSceneByBuildIndex(4)) {
-            SceneManager.UnloadSceneAsync("ObstSce3");
-        }
+        // if(SceneManager.GetSceneByName("ObstSce3") == SceneManager.GetSceneByBuildIndex(4)) {
+        //     SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("ObstSce3").buildIndex);
+        // }
 
-        if(SceneManager.GetSceneByName("ObstSce4") == SceneManager.GetSceneByBuildIndex(5)) {
-            SceneManager.UnloadSceneAsync("ObstSce4");
-        }
+        // if(SceneManager.GetSceneByName("ObstSce4") == SceneManager.GetSceneByBuildIndex(5)) {
+        //     SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("ObstSce4").buildIndex);
+        // }
+
+        Destroy(GameObject.Find("Obstacles"));
     }
     
 
@@ -240,6 +244,7 @@ public class GameManager : MonoBehaviour
 
 
     public IEnumerator CountdownCoroutine() {
+
         tCountdownText = countdownObj.GetComponent<Text>();
 
         yield return new WaitForSeconds(0.5f);
@@ -259,6 +264,7 @@ public class GameManager : MonoBehaviour
         yield return waitTime;
 
         StartCoroutine(AnimateCountdownTextCoroutine("FIGHT!"));
+     
     }
 
 

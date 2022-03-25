@@ -25,13 +25,21 @@ public class PlayerController : MonoBehaviour
     public float recoilTime;
     public float countdown;
 
-    Vector3 mousePositionInWorldSpace;
+    public GameObject grenade;
+
+    public float turnSpeed = 0.01f;
+    Quaternion rotGoal;
+    Vector3 direction;
+
+    [HideInInspector] public Vector3 mousePositionInWorldSpace;
     Vector3 movement;
 
     bool canShoot; 
     bool canMove;
 
     public Bullet b;
+
+    public bool canGrenadeShoot;
 
 
     public void Awake() {
@@ -77,7 +85,13 @@ public class PlayerController : MonoBehaviour
             canShoot = false;
             StartCoroutine(Shoot(reloadTime));
         }
-    }
+
+        if(Input.GetKey("g") && canShoot) {
+            if(EventSystem.current.IsPointerOverGameObject()) return;
+            canGrenadeShoot = false;
+            StartCoroutine(Shoot(reloadTime));
+        }
+     }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -103,8 +117,13 @@ public class PlayerController : MonoBehaviour
             // Debug.DrawLine(ray.origin, mousePosition, Color.blue); // Uncomment this code if you want to see the line its creating
         }
         // Turns the player to look at your mousePosition
-        Vector3 lookDirection = Vector3.Lerp(transform.position, mousePositionInWorldSpace, Time.deltaTime);
-        transform.LookAt(lookDirection);    
+        
+        // Vector3 lookDirection = Vector3.Lerp(transform.position, mousePositionInWorldSpace, Time.deltaTime);
+        // transform.LookAt(lookDirection);    
+
+        direction = (mousePositionInWorldSpace - transform.position).normalized;
+        rotGoal = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
 
     }
     // TODO: Animate the cylinder to go back when shooting like a recoil effect thing
@@ -113,6 +132,15 @@ public class PlayerController : MonoBehaviour
         newBullet.GetComponent<Bullet>().player = true;
         yield return new WaitForSeconds(time);
         canShoot = true;
+    }
+
+    public IEnumerator GrenadeShoot(float time) {
+        GameObject newGrenade = (GameObject) Instantiate(grenade, firePoint.position, firePoint.rotation); 
+        DmgGren grenadeScript = newGrenade.GetComponent<DmgGren>();
+        grenadeScript.player = true;
+        grenadeScript.Launch(mousePositionInWorldSpace);
+        yield return new WaitForSeconds(time);
+        canGrenadeShoot = true;
     }
 
 }

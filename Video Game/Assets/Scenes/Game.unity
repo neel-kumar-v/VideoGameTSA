@@ -4265,7 +4265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546710725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a919b2a13ac02214c812e1db0b3cd758, type: 3}
   m_Name: 
@@ -4283,7 +4283,11 @@ MonoBehaviour:
   recoil: 5
   recoilTime: 1
   countdown: 4.85
+  grenade: {fileID: 3632962583391692161, guid: e1081b0341a6aab4aa120044fac130b4, type: 3}
+  turnSpeed: 0.3
+  mousePositionInWorldSpace: {x: 0, y: 0, z: 0}
   b: {fileID: 0}
+  canGrenadeShoot: 0
 --- !u!135 &546710728
 SphereCollider:
   m_ObjectHideFlags: 0
