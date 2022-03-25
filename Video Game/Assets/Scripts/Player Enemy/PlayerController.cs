@@ -40,11 +40,8 @@ public class PlayerController : MonoBehaviour
 
     public Bullet b;
 
-<<<<<<< Updated upstream
     public bool canGrenadeShoot;
-=======
     public CameraFollow follow;
->>>>>>> Stashed changes
 
 
     public void Awake() {
