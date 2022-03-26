@@ -4,73 +4,42 @@ using UnityEngine;
 
 public class DmgGren : MonoBehaviour
 {
-    public Rigidbody ball;
-    [HideInInspector] public Transform target;
+   public float delay = 6f;
+   public float radius = 5f;
+   public float force = 700f;
 
-    public float h = 25;
-    public float gravity = -18;
+   float countdown;
+   bool hasExploded = false;
 
-    public bool debugPath;
+   void Start() {
+       countdown = delay;
+   }
 
-    public LineRenderer line;
-    [Range(0, 2)] public float lineLength;
+   void Update() {
+       countdown -= Time.deltaTime;
+       if (countdown <= 0f && !hasExploded) {
+           Explode();
+           hasExploded = true;
+       }
+   }
 
-    public static bool isShot;
+   void Explode() {
+       
+       Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
-    public float arc;
+       foreach (Collider nearbyObject in colliders) {
 
-    public Vector3 mousePos;
+           Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
 
-    public PlayerController controller;
+           if (rb != null) {
 
-    public bool player;
+               rb.AddExplosionForce(force, transform.position, radius);
+           }
+       }
 
+            // Dmg
 
-    void Start() {
-        ball.useGravity = false;
-        isShot = false;
-    }
+       Destroy(gameObject);
 
-  
-    public void Launch(Vector3 newMousePos) {
-        ball.velocity = new Vector3(0f, 0f, 0f);
-        mousePos = newMousePos;
-        StartCoroutine(LaunchC(0.5f));
-    }
-
-    IEnumerator LaunchC(float time) {
-        yield return new WaitForSeconds(time);
-        Physics.gravity = Vector3.up * gravity;
-        ball.useGravity = true;
-        LaunchData data = CalculateLaunchData();
-        ball.velocity = data.initialVelocity;
-        isShot = true;
-        StartCoroutine(DisableShoot(data.timeToTarget));
-    }
-
-    IEnumerator DisableShoot(float time) {
-        yield return new WaitForSeconds(time);
-        isShot = false;
-    }
-
-    LaunchData CalculateLaunchData() {
-        float displacementY = mousePos.y + 5f;
-        Vector3 displacementXZ = new Vector3(mousePos.x - ball.position.x, 0, mousePos.z - ball.position.z);
-        float time = Mathf.Sqrt(Mathf.Abs((-2 * h / gravity))) + Mathf.Sqrt(Mathf.Abs((2 * (displacementY - h) / gravity)));
-        Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs((-4 * gravity * h)));
-        Vector3 velocityXZ = (displacementXZ / time) / arc;
-
-        return new LaunchData(velocityXZ + velocityY * -Mathf.Sign(gravity), lineLength * time);
-    }
-
-    struct LaunchData {
-        public readonly Vector3 initialVelocity;
-        public readonly float timeToTarget;
-
-        public LaunchData(Vector3 initialVelocity, float timeToTarget) {
-            this.initialVelocity = initialVelocity;
-            this.timeToTarget = timeToTarget;
-        }
-
-    }
+   }
 }

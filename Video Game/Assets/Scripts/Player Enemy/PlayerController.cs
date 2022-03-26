@@ -87,12 +87,6 @@ public class PlayerController : MonoBehaviour
             canShoot = false;
             StartCoroutine(Shoot(reloadTime));
         }
-
-        if(Input.GetKey("g") && canShoot) {
-            if(EventSystem.current.IsPointerOverGameObject()) return;
-            canGrenadeShoot = false;
-            StartCoroutine(Shoot(reloadTime));
-        }
      }
 
     // Update is called once per frame
@@ -137,14 +131,4 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         canShoot = true;
     }
-
-    public IEnumerator GrenadeShoot(float time) {
-        GameObject newGrenade = (GameObject) Instantiate(grenade, firePoint.position, firePoint.rotation); 
-        DmgGren grenadeScript = newGrenade.GetComponent<DmgGren>();
-        grenadeScript.player = true;
-        grenadeScript.Launch(mousePositionInWorldSpace);
-        yield return new WaitForSeconds(time);
-        canGrenadeShoot = true;
-    }
-
 }
