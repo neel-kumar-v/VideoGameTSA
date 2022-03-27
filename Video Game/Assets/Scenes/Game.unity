@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.0007227566, g: 0.0039890646, b: 0.019866956, a: 1}
+  m_IndirectSpecularColor: {r: 0.00077867036, g: 0.004123315, b: 0.019989327, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4270,7 +4270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a919b2a13ac02214c812e1db0b3cd758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 0.2
+  force: 12
   rb: {fileID: 546710726}
+  isPlayer2: 0
   cam: {fileID: 1687258584}
   shake: {fileID: 1687258587}
   bullet: {fileID: 3632962583391692161, guid: 1bc7d71a1e3d3b14ab2d70b597709ef0, type: 3}
@@ -4281,11 +4284,11 @@ MonoBehaviour:
   cylinderRot: {x: 90, y: 0, z: 0}
   startPos: {x: 0, y: 2, z: 15}
   speed: 15
-  recoil: 5
+  recoil: 7
   recoilTime: 1
   countdown: 4.85
   grenade: {fileID: 3632962583391692161, guid: e1081b0341a6aab4aa120044fac130b4, type: 3}
-  turnSpeed: 0.04
+  turnSpeed: 0.15
   mousePositionInWorldSpace: {x: 0, y: 0, z: 0}
   b: {fileID: 0}
   canGrenadeShoot: 0
@@ -19159,11 +19162,6 @@ MonoBehaviour:
   ball: {fileID: 1528759640175952051, guid: f8e96c4798743ba48949b198229eced7, type: 3}
   grenade: {fileID: 7863019802317489733, guid: f8e96c4798743ba48949b198229eced7, type: 3}
   controller: {fileID: 546710727}
-  h: 25
-  gravity: -18
-  debugPath: 0
-  lineLength: 0
-  arc: 1.7
 --- !u!1 &1947997585
 GameObject:
   m_ObjectHideFlags: 0
@@ -20921,6 +20919,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1921581233}
+    - target: {fileID: 4761684610789181587, guid: df90876bc495d554e8a20e3ca7c51c24,
+        type: 3}
+      propertyPath: force
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4761684610789181587, guid: df90876bc495d554e8a20e3ca7c51c24,
         type: 3}
       propertyPath: countdown

@@ -6,7 +6,13 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     [Header("Unity Setup")]
+
+    public float radius = 0.2f;
+    public float force = 7000f;
+
     public Rigidbody rb;
+
+    public bool isPlayer2 = false;
     public Camera cam;
     public CameraShake shake;
     [Space(15)]
@@ -37,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
     bool canShoot; 
     bool canMove;
+    bool overrideVelocity = false;
 
     public Bullet b;
 
@@ -100,7 +107,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Move() {
+        if (overrideVelocity) {return;}
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+        if (isPlayer2) {
+            movement = new Vector3(Input.GetAxisRaw("Horizontal1"), 0f, Input.GetAxisRaw("Vertical1"));
+        }
         rb.velocity = movement * speed * (inverse ? -1f : 1f);
     }
 
@@ -130,7 +141,11 @@ public class PlayerController : MonoBehaviour
         GameObject newBullet = (GameObject) Instantiate(bullet, firePoint.position, firePoint.rotation); 
         newBullet.GetComponent<Bullet>().player = true;
         StartCoroutine(shake.Shake(0.5f, 0.01f * b.damage));
-        yield return new WaitForSeconds(time);
+        overrideVelocity = true;
+        rb.AddForce(force * -transform.forward, ForceMode.Impulse);
+        yield return new WaitForSeconds(time/2f);
+        overrideVelocity = false;
+        yield return new WaitForSeconds(time/2f);
         canShoot = true;
     }
 }

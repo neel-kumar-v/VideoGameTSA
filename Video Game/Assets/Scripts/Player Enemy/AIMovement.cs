@@ -5,6 +5,11 @@ using UnityEngine;
 public class AIMovement : MonoBehaviour
 {
     [Header("Parameters")]
+
+    public float radius = 0.2f;
+    public float force = 7000f;
+    bool overrideVelocity = false;
+
     public float speed;
     public float chaseDistance;
     public float retreatDistance;
@@ -72,10 +77,10 @@ public class AIMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if(player == null || rb == null || !pRend.enabled) return; // If any of these things are null or disabled, it means the game currently isn't playing, so don't chase
+        if(player == null || rb == null || !pRend.enabled || overrideVelocity) return; // If any of these things are null or disabled, it means the game currently isn't playing, so don't chase
 
         // if(AvoidBullets()) return; --This code can be enabled if we want the AI to dodge all of the player's bullets, but it doesn't look right so i disabled it
-
+        
         distance = Vector3.Distance(transform.position, player.position); // The distance in between the player and the AI
         vel = (transform.position - player.position).normalized; // The direction to chase the player in
 
@@ -118,9 +123,6 @@ public class AIMovement : MonoBehaviour
         return false;
     }
 
-
-
-
     void Update() {
         if(player == null) return; // Don't run code unless we found the player
         
@@ -134,7 +136,11 @@ public class AIMovement : MonoBehaviour
     public IEnumerator Shoot(float time) {
         GameObject newBullet = (GameObject) Instantiate(bullet, firePoint.position, firePoint.rotation); 
         newBullet.GetComponent<Bullet>().player = false;
-        yield return new WaitForSeconds(time);
+        overrideVelocity = true;
+        rb.AddForce(force * -transform.forward, ForceMode.Impulse);
+        yield return new WaitForSeconds(time/2f);
+        overrideVelocity = false;
+        yield return new WaitForSeconds(time/2f);
         canShoot = true;
     }
 
