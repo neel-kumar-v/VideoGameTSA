@@ -108,6 +108,16 @@ public class GameManager : MonoBehaviour
         StartShopUI();
     }
 
+    public void RandomizeEnemyCountries() {
+        for (int i = 0; i < countries.Length; i++)
+        {
+            int randomIndex = Random.Range(0, countries.Length);
+            string temp = countries[randomIndex];
+            countries[randomIndex] = countries[i];
+            countries[i] = temp;
+        }
+    }
+
     public void SetEnemyGun() {
         gunsToPickFrom = new BulletStats[3];
 

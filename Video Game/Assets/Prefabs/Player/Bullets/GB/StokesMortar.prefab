@@ -101,7 +101,7 @@ MonoBehaviour:
   reload: 3
   speed: 27.5
   damage: 65
-  explode: 1
+  explosive: 1
   explosionDamage: 35
   explosionRadius: 7
   weight: 1.75

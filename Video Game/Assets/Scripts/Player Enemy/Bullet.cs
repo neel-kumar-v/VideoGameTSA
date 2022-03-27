@@ -46,6 +46,7 @@ public class Bullet : MonoBehaviour
         GameObject hit = collider.gameObject;
 
         if(hit.CompareTag("obstacle")) { // If hit an obstacle
+            Explode();
             DestroyBullet();
             return;
         }
@@ -64,12 +65,16 @@ public class Bullet : MonoBehaviour
         ApplyDamage(hit, damage);
 
         if(explosive) { // If this bullet is explosive
-            Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius); // Check all objects in the explosionRadius
-            foreach (Collider col in colliders)
-            {
-                if(col.gameObject.CompareTag("Obstacle")) return; // As long as it isn't an obstacle, apply the damage
-                ApplyDamage(col.gameObject, explosionDamage);
-            }
+            Explode();
+        }
+    }
+
+    public void Explode() {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius); // Check all objects in the explosionRadius
+        foreach (Collider col in colliders)
+        {
+            if(col.gameObject.CompareTag("obstacle")) return; // As long as it isn't an obstacle, apply the damage
+            ApplyDamage(col.gameObject, explosionDamage);
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DmgGren : MonoBehaviour
 {
-   public float delay = 6f;
+   public float delay = 9f;
    public float radius = 5f;
    public float force = 700f;
 
@@ -32,8 +32,8 @@ public class DmgGren : MonoBehaviour
            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
 
            if (rb != null) {
-
-               rb.AddExplosionForce(force, transform.position, radius);
+               Debug.Log("sdfsdf");
+               rb.AddExplosionForce(force * 100000f, transform.position, radius);
            }
        }
 
@@ -42,4 +42,8 @@ public class DmgGren : MonoBehaviour
        Destroy(gameObject);
 
    }
+   public void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius); // Shows the size of the explosion radius in the editor
+    }
 }
