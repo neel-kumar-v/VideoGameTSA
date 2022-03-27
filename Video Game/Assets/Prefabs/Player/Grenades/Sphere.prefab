@@ -125,12 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd893beba2d7de6439c308dab85cf2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   delay: 3
   radius: 5
-  force: 700
-=======
-  delay: 6
-  radius: 7
   force: 1
->>>>>>> Stashed changes
