@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public float explosionRadius;
     public float weight;
     public float pierce;
+    public float clipSize;
 
     [Header("Unity Setup")] 
     public bool player;
@@ -36,7 +37,7 @@ public class Bullet : MonoBehaviour
     }
 
     void Update() {
-        if(pierce <= 0) { // Destroy the bullet immediately after it runs out fo pierce
+        if(pierce <= 0) { // Destroy the bullet immediately after it runs out of pierce
             DestroyBullet();
         }
     }
@@ -93,7 +94,7 @@ public class Bullet : MonoBehaviour
     }
 
     void DestroyBullet() {
-        Destroy((GameObject) Instantiate(particles, transform.position, transform.rotation), 3f);
+        Destroy((GameObject) Instantiate(particles, transform.position, (Quaternion.Inverse(transform.rotation))), 3f);
         Destroy(gameObject);
     }
 }

@@ -149,12 +149,4 @@ public class PlayerController : MonoBehaviour
         canShoot = true;
     }
 }
-// LaunchData CalculateLaunchData() {
-//     float displacementZ = target.z - ball.position.z;
-//     Vector3 displacementXZ = new Vector3(target.x - ball.position.x, 0, target.y - ball.position.y);
-//     float time = Mathf.Sqrt(Mathf.Abs((-2 * h / gravity))) + Mathf.Sqrt(Mathf.Abs((2 * (displacementY - h) / gravity)));
-//     Vector3 velocityY = Vector3.up * Mathf.Sqrt(Mathf.Abs((-4 * gravity * h)));
-//     Vector3 velocityXZ = (displacementXZ / time) / arc;
 
-//     return new LaunchData(velocityXZ + velocityY * -Mathf.Sign(gravity), lineLength * time);
-// }

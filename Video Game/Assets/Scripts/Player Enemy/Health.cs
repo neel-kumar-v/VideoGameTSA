@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
     public Slider armorBar;
     public float smoothStep;
     public Volume volume;
+    public CameraShake shake;
     [Space(10)]
     public GameObject deadFx;
     [Space(10)]
@@ -84,6 +85,7 @@ public class Health : MonoBehaviour
         UpdateUI();
     }
     public void ApplyDamage(float damage) {
+        if(isPlayer) {StartCoroutine(shake.Shake(0.5f, 0.01f * damage));}
         if(armor <= 0) { // If we don't have armor remaining
             DamageHealth(damage);
             return;
