@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     [Header("Unity Setup")]
-
+    
+    public AnimationCurve xCurve;
     public float radius = 0.2f;
     public float force = 7000f;
 
@@ -54,7 +55,7 @@ public class PlayerController : MonoBehaviour
 
 
     public void Awake() {
-        GameObject cylinderGO = (GameObject) Instantiate(cylinder, transform, false);
+        
     }
 
     public void Start() {
@@ -143,10 +144,22 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(shake.Shake(0.5f, 0.01f * b.damage));
         overrideVelocity = true;
         rb.AddForce(force * -transform.forward, ForceMode.Impulse);
+        cylinder.transform.localPosition = new Vector3(0f ,0f ,0.3f);
         yield return new WaitForSeconds(time/2f);
+        StartCoroutine(CylinderMove());
         overrideVelocity = false;
         yield return new WaitForSeconds(time/2f);
         canShoot = true;
     }
+
+    public IEnumerator CylinderMove() {
+        float timeElapsed = 0f;
+        while(timeElapsed <= 4f) {
+            cylinder.transform.localPosition = Vector3.Lerp(new Vector3(0f ,0f ,0.3f), new Vector3(0f ,0f ,0.625f), timeElapsed/2);
+            timeElapsed += Time.deltaTime;
+        }
+        yield return null;
+    }
+
 }
 
