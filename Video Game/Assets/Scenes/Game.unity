@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.00077867036, g: 0.004123315, b: 0.019989327, a: 1}
+  m_IndirectSpecularColor: {r: 0.0007227566, g: 0.0039890646, b: 0.019866956, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4308,7 +4308,7 @@ MonoBehaviour:
   isPlayer2: 0
   cam: {fileID: 1687258584}
   shake: {fileID: 1687258587}
-  bullet: {fileID: 3632962583391692161, guid: 1bc7d71a1e3d3b14ab2d70b597709ef0, type: 3}
+  bullet: {fileID: 7572027801372095415, guid: 1a041355b39416f41805310250cfaa28, type: 3}
   firePoint: {fileID: 1934611552}
   cylinder: {fileID: 1468441279}
   cylinderPos: {x: 0, y: 0, z: 0.625}
