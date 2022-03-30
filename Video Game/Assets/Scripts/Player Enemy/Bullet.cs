@@ -20,7 +20,10 @@ public class Bullet : MonoBehaviour
     public Rigidbody rb;
     public GameObject particles;
     public Transform playerPos;
-
+    public float bulletPos;
+    public Vector3 previousPosition;
+    public float distance = 0f;
+    
 
     public void Start() {
         Shoot(); // Move the bullet forward
@@ -34,6 +37,8 @@ public class Bullet : MonoBehaviour
 
     void Shoot() {
         rb.AddForce(transform.forward * speed, ForceMode.Impulse);
+
+        bulletPos = transform.position.x;
     }
 
     void Update() {
@@ -45,7 +50,7 @@ public class Bullet : MonoBehaviour
     public void OnTriggerEnter(Collider collider) { // When the bullet hits something
 
         GameObject hit = collider.gameObject;
-
+        
         if(hit.CompareTag("obstacle")) { // If hit an obstacle
             Explode();
             DestroyBullet();
@@ -94,7 +99,17 @@ public class Bullet : MonoBehaviour
     }
 
     void DestroyBullet() {
-        Destroy((GameObject) Instantiate(particles, transform.position, (Quaternion.Inverse(transform.rotation))), 3f);
+
+        distance += Vector3.Distance(transform.position, previousPosition);
+        previousPosition = transform.position;
+
+
+        // transform.localEulerAngles = new Vector3(0,0, - transform.rotation.z);
+
+        // find distance to wall, find vertical distance from player to wall, find distance of path of bullet to wall, and then sin of the player
+        // to wall over distance of path of bullet to wall has to equal 180 - that angle
+        
+        Destroy((GameObject) Instantiate(particles, transform.position, Quaternion.Euler((180 - Mathf.Sin(bulletPos / distance)), 0f, 0f)), 3f);
         Destroy(gameObject);
     }
 }
