@@ -146,36 +146,31 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(force * -transform.forward, ForceMode.Impulse);
         cylinder.transform.localPosition = new Vector3(0f ,0f ,0.3f);
         yield return new WaitForSeconds(time/2f);
-<<<<<<< Updated upstream
         StartCoroutine(CylinderMove());
         overrideVelocity = false;
-=======
         StartCoroutine(BlendMove());
->>>>>>> Stashed changes
         yield return new WaitForSeconds(time/2f);
         overrideVelocity = false;
         canShoot = true;
     }
 
-<<<<<<< Updated upstream
     public IEnumerator CylinderMove() {
         float timeElapsed = 0f;
         while(timeElapsed <= 4f) {
             cylinder.transform.localPosition = Vector3.Lerp(new Vector3(0f ,0f ,0.3f), new Vector3(0f ,0f ,0.625f), timeElapsed/2);
-=======
+            timeElapsed += Time.deltaTime;
+        }
+        yield return null;
+    }
     public IEnumerator BlendMove() {
         float timeElapsed = 0f;
         while(timeElapsed <= 0.5f) {
             movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
             rb.velocity = Vector3.Lerp(rb.velocity, movement * speed, 0.5f + timeElapsed);
->>>>>>> Stashed changes
             timeElapsed += Time.deltaTime;
         }
         yield return null;
     }
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 }
 
