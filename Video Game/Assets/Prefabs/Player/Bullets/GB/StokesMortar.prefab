@@ -106,11 +106,15 @@ MonoBehaviour:
   explosionRadius: 7
   weight: 1.75
   pierce: 20
+  clipSize: 0
   player: 1
   rb: {fileID: 1488706856927580345}
   particles: {fileID: 5611341460511595743, guid: 12dfce03ee3133247a742ecbbd1270d6,
     type: 3}
   playerPos: {fileID: 0}
+  bulletPos: 0
+  previousPosition: {x: 0, y: 0, z: 0}
+  distance: 0
 --- !u!54 &1488706856927580345
 Rigidbody:
   m_ObjectHideFlags: 0

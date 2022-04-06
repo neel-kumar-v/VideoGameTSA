@@ -115,16 +115,20 @@ MonoBehaviour:
   reload: 1
   speed: 35
   damage: 12
-  explode: 0
+  explosive: 0
   explosionDamage: 0
   explosionRadius: 0
   weight: 0.9
   pierce: 3
+  clipSize: 0
   player: 0
   rb: {fileID: 124184108604694627}
   particles: {fileID: 5611341460511595743, guid: 425b36a792fc8f5478c9c797824a5970,
     type: 3}
   playerPos: {fileID: 0}
+  bulletPos: 0
+  previousPosition: {x: 0, y: 0, z: 0}
+  distance: 0
 --- !u!54 &124184108604694627
 Rigidbody:
   m_ObjectHideFlags: 0

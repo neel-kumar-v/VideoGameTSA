@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         if (isPlayer2) {
             movement = new Vector3(Input.GetAxisRaw("Horizontal1"), 0f, Input.GetAxisRaw("Vertical1"));
         }
-        rb.velocity = movement * speed * (inverse ? -1f : 1f);
+        rb.velocity = 1.17f * movement * speed * (inverse ? -1f : 1f);
     }
 
     public void Rotate() {
