@@ -113,14 +113,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reload: 1
+  reloadClip: 0
   speed: 20
+  force: 0
   damage: 8
   explosive: 0
   explosionDamage: 0
   explosionRadius: 0
   weight: 1
   pierce: 1
+<<<<<<< Updated upstream
   clipSize: 0
+=======
+  clipSize: 12
+>>>>>>> Stashed changes
   player: 0
   rb: {fileID: 124184108604694627}
   particles: {fileID: 5611341460511595743, guid: 425b36a792fc8f5478c9c797824a5970,

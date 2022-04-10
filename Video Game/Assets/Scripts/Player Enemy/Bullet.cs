@@ -6,7 +6,9 @@ public class Bullet : MonoBehaviour
 {
     [Header("Bullet Stats")]
     public float reload;
+    public float reloadClip;
     public float speed;
+    public float force;
     public float damage;
     public bool explosive;
     public float explosionDamage;

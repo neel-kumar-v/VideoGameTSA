@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
     [Header("Unity Setup")]
     
     public AnimationCurve xCurve;
-    public float radius = 0.2f;
-    public float force = 7000f;
 
     public Rigidbody rb;
 
@@ -28,9 +26,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Parameters")]
     public float speed;
+    public float force = 7000f;
     float reloadTime;
-    public float recoil;
-    public float recoilTime;
+    public float reloadClip;
+    public float clipSize;
+    float currentClip;
     public float countdown;
 
     public GameObject grenade;
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector3 mousePositionInWorldSpace;
     Vector3 movement;
 
-    bool canShoot; 
+    [HideInInspector] public bool canShoot; 
     bool canMove;
     bool overrideVelocity = false;
 
@@ -53,10 +53,6 @@ public class PlayerController : MonoBehaviour
 
     public bool inverse;
 
-
-    public void Awake() {
-        
-    }
 
     public void Start() {
         canShoot = true;
@@ -79,7 +75,9 @@ public class PlayerController : MonoBehaviour
         // make sure all stats are correct
         b = bullet.GetComponent<Bullet>();
         speed /= b.weight;
-        reloadTime = b.reload;  
+        reloadTime = b.reload; 
+        clipSize = b.clipSize; 
+        currentClip = clipSize;
     }
 
     public IEnumerator Countdown(float time) {
@@ -97,6 +95,13 @@ public class PlayerController : MonoBehaviour
             canShoot = false;
             StartCoroutine(Shoot(reloadTime));
         }
+     }
+
+     public IEnumerator ReloadPause(float reload) {
+         canShoot = false;
+         yield return new WaitForSeconds(reload);
+         currentClip = clipSize;
+         canShoot = true;
      }
 
     // Update is called once per frame
@@ -137,21 +142,36 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
 
     }
-    // TODO: Animate the cylinder to go back when shooting like a recoil effect thing
     public IEnumerator Shoot(float time) {
         GameObject newBullet = (GameObject) Instantiate(bullet, firePoint.position, firePoint.rotation); 
+        Debug.Log(newBullet);
         newBullet.GetComponent<Bullet>().player = true;
+
         StartCoroutine(shake.Shake(0.5f, 0.01f * b.damage));
+
         overrideVelocity = true;
         rb.AddForce(force * -transform.forward, ForceMode.Impulse);
+
         cylinder.transform.localPosition = new Vector3(0f ,0f ,0.3f);
+
         yield return new WaitForSeconds(time/2f);
+
         StartCoroutine(CylinderMove());
+
         overrideVelocity = false;
         StartCoroutine(BlendMove());
+
         yield return new WaitForSeconds(time/2f);
+
         overrideVelocity = false;
         canShoot = true;
+
+        currentClip --;
+        Debug.Log(currentClip);
+        
+        if(currentClip == 0) {
+            StartCoroutine(ReloadPause(reloadClip));
+        }
     }
 
     public IEnumerator CylinderMove() {
