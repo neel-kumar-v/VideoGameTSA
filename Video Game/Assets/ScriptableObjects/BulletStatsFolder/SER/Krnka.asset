@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Krnka
+  m_EditorClassIdentifier: 
+  gunName: Krnka M1867
+  gunInfo: 'It was adopted by the Russian Empire in 1869 and was a breech loading
+    gun. There were two versions of this gun, an infantry rifle and a cavalry rifle.
+    However, shortly after its introduction to service, the M1867 was replaced by
+    the Berdan rifle due to its better capabilities, but the M1867 did not die out
+    and would still be used in Serbia. They were given out to Serbian conscripts
+    and police forces. After being taken out of service, many Krnka rifles were converted
+    into cheap smoothbore hunting shotguns.
+
+'
+  bullet: {fileID: 0}
+  bulletObj: {fileID: 0}
+  price: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Mannlicher
+  m_EditorClassIdentifier: 
+  gunName: Mannlicher Model 1888
+  gunInfo: "The Model 1888 had a straight-pull bolt-action design. It had a box magazine
+    that was fed by five-round clips. The magazine was situated apart from the trigger
+    group creating a small noticeable gap in between. The body was a single-piece
+    wooden element that incorporated the shoulder stock, grip, receiver and long-running
+    handguard in a traditional fashion. However, although new, its use was short-lived
+    because of the French 8mm. It made all Austria-Hungary\u2019s rifle types obsolete.
+    This Mannlicher design is noted as the first service rifle anywhere in the world
+    to combine the benefits of a smokeless powder cartridge with the use of an integral
+    box magazine.\r\n"
+  bullet: {fileID: 0}
+  bulletObj: {fileID: 0}
+  price: 0

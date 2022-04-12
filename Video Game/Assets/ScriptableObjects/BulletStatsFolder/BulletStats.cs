@@ -14,6 +14,5 @@ public class BulletStats : ScriptableObject
 
     public int price;
 
-    public int fov;
 
 }

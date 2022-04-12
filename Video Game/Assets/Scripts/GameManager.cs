@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public float countdown = 3f;
     public GameObject countdownObj;
     public Text tCountdownText;
+    public GameObject pauseButton;
     public GameObject baseBullet;
 
     [Header("Countries")]
@@ -54,6 +55,10 @@ public class GameManager : MonoBehaviour
     public float enemyBulletSpeedScaling;
     [Range(0f, 5f)]
     public float enemyDamageScaling;
+
+    [Space(10)]
+    [Header("Audio")]
+    public int songCount;
 
     [HideInInspector] public int rounds;
     private int gunRounds;
@@ -93,6 +98,7 @@ public class GameManager : MonoBehaviour
 
     #region StartFunctions
     public void Start() {
+        Time.timeScale = 1f;
         weapon = (BulletStats) ScriptableObject.CreateInstance("BulletStats");
         weapon.gunName = "Base Bullet";
         playerCountry = MainMenu.countryString == null ? "France" : MainMenu.countryString;
@@ -166,18 +172,31 @@ public class GameManager : MonoBehaviour
         enemyMovement.enabled = true;        
         ResetObject(enemy);
 
+        ScaleEnemyByRound();
+
+        RandomObstacleScene();
+
+        PlayRandomTrack();
+
+        StartCoroutine(CountdownCoroutine());
+    }
+
+    public void PlayRandomTrack() {
+        int randomSongIndex = Random.Range(1, songCount + 1);
+        string randomSongName = "Song" + randomSongIndex.ToString();
+        FindObjectOfType<AudioManager>().PlaySong(randomSongName);
+    }
+
+    public void ScaleEnemyByRound() {
         float multiplier = (float) rounds - 1;
         enemyHealth.startArmor = 125 * multiplier;
         enemyHealth.regenSpeed = 1f + multiplier - 1;
         enemyMovement.speed = enemyMovement.speed + enemySpeedScaling * multiplier;
 
-        RandomObstacleScene();
-
         // -- SCALING --
         // Bullet bullet = enemyMovement.bullet.GetComponent<Bullet>();
         // bullet.damage = bullet.damage + enemyDamageScaling * multiplier;
         // bullet.speed = bullet.speed + enemyDamageScaling * multiplier;
-        StartCoroutine(CountdownCoroutine());
     }
 
     public void RandomObstacleScene() {
@@ -218,9 +237,6 @@ public class GameManager : MonoBehaviour
         Destroy(GameObject.Find("Obstacles"));
     }
     
-
-
-
     public void UpdateCountryByRound() {
         if(rounds == 6) {
             Win();
@@ -256,6 +272,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator CountdownCoroutine() {
 
         tCountdownText = countdownObj.GetComponent<Text>();
+        pauseButton.SetActive(false);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -274,6 +291,7 @@ public class GameManager : MonoBehaviour
         yield return waitTime;
 
         StartCoroutine(AnimateCountdownTextCoroutine("FIGHT!"));
+        pauseButton.SetActive(true);
      
     }
 

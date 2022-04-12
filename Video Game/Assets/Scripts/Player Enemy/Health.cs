@@ -150,7 +150,6 @@ public class Health : MonoBehaviour
 
         if(!isPlayer) {
             float formula = ((maxHealth + maxHealth * (canRegen ? regenSpeed : 0f)) + maxArmor + startArmor) * 2;
-            Debug.Log(formula);
             Stats.OnKill(formula);
         }
 

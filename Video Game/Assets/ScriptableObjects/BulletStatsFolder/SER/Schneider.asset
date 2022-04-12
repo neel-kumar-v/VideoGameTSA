@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Schneider
+  m_EditorClassIdentifier: 
+  gunName: Schneider-Canet Mortar
+  gunInfo: "In 1897, the Serbian Army ordered six of these slow firing mortars, which
+    arrived in the year 1900. These mortars were special because they were among
+    the first Serbian weapons to be modernized to use smokeless powder, as these
+    modifications happened in 1906-07. While in 1910, newer mortars were introduced,
+    the Serbians still used these weapons in the \u201CHeavy Regiment of Fortress
+    Artillery\u201D.\r\n"
+  bullet: {fileID: 0}
+  bulletObj: {fileID: 0}
+  price: 0

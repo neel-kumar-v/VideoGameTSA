@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.00077867036, g: 0.004123315, b: 0.019989327, a: 1}
+  m_IndirectSpecularColor: {r: 0.0007227566, g: 0.0039890646, b: 0.019866956, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: -1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!65 &62623815
 BoxCollider:
@@ -1028,8 +1028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 221.78772, y: -106.85627}
-  m_SizeDelta: {x: 443.57544, y: 213.71254}
+  m_AnchoredPosition: {x: 221.78772, y: -107.056915}
+  m_SizeDelta: {x: 443.57544, y: 214.11383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &77189619
 MonoBehaviour:
@@ -1975,7 +1975,7 @@ GameObject:
   - component: {fileID: 261757823}
   - component: {fileID: 261757822}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1998,8 +1998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 201.21735, y: -234.3982}
-  m_SizeDelta: {x: 382.4347, y: 142.93213}
+  m_AnchoredPosition: {x: 263.8227, y: -287.372}
+  m_SizeDelta: {x: 467.6454, y: 151.58134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261757822
 MonoBehaviour:
@@ -2445,8 +2445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 221.78772, y: -106.85627}
-  m_SizeDelta: {x: 443.57544, y: 213.71254}
+  m_AnchoredPosition: {x: 221.78772, y: -107.056915}
+  m_SizeDelta: {x: 443.57544, y: 214.11383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &335957773
 MonoBehaviour:
@@ -2973,7 +2973,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 221.78772, y: -371.561}
-  m_SizeDelta: {x: 443.57544, y: 157.84846}
+  m_SizeDelta: {x: 443.57544, y: 157.44717}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &423260729
 MonoBehaviour:
@@ -4233,8 +4233,11 @@ GameObject:
   - component: {fileID: 546710727}
   - component: {fileID: 546710726}
   - component: {fileID: 546710732}
+<<<<<<< Updated upstream
   - component: {fileID: 546710734}
   - component: {fileID: 546710733}
+=======
+>>>>>>> Stashed changes
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -4275,30 +4278,21 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 6
-      outSlope: 6
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.25
-      value: 1.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      value: 0.3
+      inSlope: -0.005838569
+      outSlope: -0.005838569
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.037307974
     - serializedVersion: 3
-      time: 0.5
-      value: 0
-      inSlope: -6
-      outSlope: -6
-      tangentMode: 34
+      time: 1
+      value: 0.6
+      inSlope: -0.015006073
+      outSlope: -0.015006073
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.038771033
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -4469,6 +4463,7 @@ MonoBehaviour:
   isPlayer: 1
   dead: 0
   startArmor: 0
+<<<<<<< Updated upstream
 --- !u!114 &546710733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4577,6 +4572,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> Stashed changes
 --- !u!1 &547655407
 GameObject:
   m_ObjectHideFlags: 0
@@ -5281,7 +5278,7 @@ GameObject:
   - component: {fileID: 630976333}
   - component: {fileID: 630976332}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5304,8 +5301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 201.21735, y: -81.466064}
-  m_SizeDelta: {x: 382.4347, y: 142.93213}
+  m_AnchoredPosition: {x: 263.8227, y: -105.79067}
+  m_SizeDelta: {x: 467.6454, y: 151.58134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630976332
 MonoBehaviour:
@@ -5362,6 +5359,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1491207462}
+        m_TargetAssemblyTypeName: MouseUpdater, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &630976333
 MonoBehaviour:
@@ -5936,8 +5945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 221.78772, y: -106.85627}
-  m_SizeDelta: {x: 443.57544, y: 213.71254}
+  m_AnchoredPosition: {x: 221.78772, y: -107.056915}
+  m_SizeDelta: {x: 443.57544, y: 214.11383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699703967
 MonoBehaviour:
@@ -6948,7 +6957,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 221.78772, y: -371.561}
-  m_SizeDelta: {x: 443.57544, y: 157.84846}
+  m_SizeDelta: {x: 443.57544, y: 157.44717}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &780978904
 MonoBehaviour:
@@ -7828,6 +7837,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1491207462}
+        m_TargetAssemblyTypeName: MouseUpdater, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &853384288
 MonoBehaviour:
@@ -9079,7 +9100,7 @@ GameObject:
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &944355153
 Transform:
@@ -9542,6 +9563,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1491207463}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySong
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Shop
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &965297101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9793,7 +9826,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 221.78772, y: -371.561}
-  m_SizeDelta: {x: 443.57544, y: 157.84846}
+  m_SizeDelta: {x: 443.57544, y: 157.44717}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &971972328
 MonoBehaviour:
@@ -10430,7 +10463,7 @@ GameObject:
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!65 &1024466647
 BoxCollider:
@@ -14596,7 +14629,7 @@ GameObject:
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!65 &1435280608
 BoxCollider:
@@ -14930,6 +14963,8 @@ GameObject:
   - component: {fileID: 1491207460}
   - component: {fileID: 1491207459}
   - component: {fileID: 1491207461}
+  - component: {fileID: 1491207463}
+  - component: {fileID: 1491207462}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -14983,6 +15018,7 @@ MonoBehaviour:
   countdown: 3
   countdownObj: {fileID: 1894753904}
   tCountdownText: {fileID: 1894753907}
+  pauseButton: {fileID: 1013421395}
   baseBullet: {fileID: 3632962583391692161, guid: 1bc7d71a1e3d3b14ab2d70b597709ef0,
     type: 3}
   playerCountry: France
@@ -15047,6 +15083,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1491207462}
+        m_TargetAssemblyTypeName: MouseUpdater, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onAllEnemiesDead:
     m_PersistentCalls:
       m_Calls:
@@ -15062,11 +15110,80 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1491207462}
+        m_TargetAssemblyTypeName: MouseUpdater, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   winScene: {fileID: 917089419}
   enemySpeedScaling: 1
   enemyBulletSpeedScaling: 1
   enemyDamageScaling: 1
+  songCount: 3
   rounds: 0
+--- !u!114 &1491207462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491207458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1ed7daeab303d419a71955468226d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crosshair: {fileID: 1676117526}
+--- !u!114 &1491207463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491207458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 477d5a03a6294d145aa68bde1f81c08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Song1
+    clip: {fileID: 8300000, guid: b3a2229990ebb094881dd1c7fccf45ee, type: 3}
+    volume: 0.18
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Song2
+    clip: {fileID: 8300000, guid: 8d48184973af18c46bb3a932601aa6e6, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Shop
+    clip: {fileID: 8300000, guid: 9600f76de5d86c7439ea6fbaa8521f24, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Song3
+    clip: {fileID: 8300000, guid: 8f5bd7c4267dda3458a89e95cac0be3f, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: feb0f6a69fec3484187c5c9ad81f194e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1500071775
 GameObject:
   m_ObjectHideFlags: 0
@@ -15310,7 +15427,7 @@ GameObject:
   - component: {fileID: 1534134910}
   - component: {fileID: 1534134909}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15333,8 +15450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 201.21735, y: -387.33032}
-  m_SizeDelta: {x: 382.4347, y: 142.93213}
+  m_AnchoredPosition: {x: 263.8227, y: -468.95337}
+  m_SizeDelta: {x: 467.6454, y: 151.58134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534134909
 MonoBehaviour:
@@ -17029,7 +17146,7 @@ GameObject:
   - component: {fileID: 1674914260}
   - component: {fileID: 1674914258}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: AspectRatio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17138,7 +17255,7 @@ GameObject:
   - component: {fileID: 1676117528}
   - component: {fileID: 1676117530}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17601,6 +17718,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Toggle
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1491207462}
+        m_TargetAssemblyTypeName: MouseUpdater, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -18292,7 +18421,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 124
+    m_MaxSize: 130
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -20427,7 +20556,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -90.56665}
-  m_SizeDelta: {x: 402.4347, y: 468.7964}
+  m_SizeDelta: {x: 527.6454, y: 574.744}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2099551234
 MonoBehaviour:
@@ -20442,12 +20571,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
-    m_Top: 10
-    m_Bottom: 10
+    m_Left: 30
+    m_Right: 30
+    m_Top: 30
+    m_Bottom: 30
   m_ChildAlignment: 4
-  m_Spacing: 10
+  m_Spacing: 30
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -20738,6 +20867,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1491207462}
+        m_TargetAssemblyTypeName: MouseUpdater, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2128964401
 MonoBehaviour:

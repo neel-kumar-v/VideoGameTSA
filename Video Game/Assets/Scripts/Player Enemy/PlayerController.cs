@@ -143,6 +143,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = 1.17f * movement * speed * (inverse ? -1f : 1f);
     }
 
+
     public void Rotate() {
         // Using the mousePosition, makes a line going out from the camera
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -166,7 +167,6 @@ public class PlayerController : MonoBehaviour
     }
     public IEnumerator Shoot(float time) {
         GameObject newBullet = (GameObject) Instantiate(bullet, firePoint.position, firePoint.rotation); 
-        Debug.Log(newBullet);
         newBullet.GetComponent<Bullet>().player = true;
 
         StartCoroutine(shake.Shake(0.5f, 0.01f * b.damage));
@@ -176,30 +176,30 @@ public class PlayerController : MonoBehaviour
 
         cylinder.transform.localPosition = new Vector3(0f ,0f ,0.3f);
 
-        yield return new WaitForSeconds(time/2f);
 
-        StartCoroutine(CylinderMove());
+        yield return new WaitForSeconds(time / 2f);
+
+        StartCoroutine(CylinderMove(time));
 
         overrideVelocity = false;
         StartCoroutine(BlendMove());
 
-        yield return new WaitForSeconds(time/2f);
+        yield return new WaitForSeconds(time / 2f);
 
         overrideVelocity = false;
         canShoot = true;
 
-        currentClip --;
-        Debug.Log(currentClip);
+        // currentClip --;
         
-        if(currentClip == 0) {
-            StartCoroutine(ReloadPause(reloadClip));
-        }
+        // if(currentClip == 0) {
+        //     StartCoroutine(ReloadPause(reloadClip));
+        // }
     }
 
-    public IEnumerator CylinderMove() {
+    public IEnumerator CylinderMove(float duration) {
         float timeElapsed = 0f;
-        while(timeElapsed <= 4f) {
-            cylinder.transform.localPosition = Vector3.Lerp(new Vector3(0f ,0f ,0.3f), new Vector3(0f ,0f ,0.625f), timeElapsed/2);
+        while(timeElapsed <= duration) {
+            cylinder.transform.localPosition = new Vector3(0f, 0f, xCurve.Evaluate(timeElapsed / duration));
             timeElapsed += Time.deltaTime;
         }
         yield return null;

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7cca55250126b4f9271a241fca219e, type: 3}
+  m_Name: Steyr
+  m_EditorClassIdentifier: 
+  gunName: Steyr Model 1907
+  gunInfo: "The Roth-Steyr M07 (or \"Model 07\") holds the distinction of becoming
+    the first self-loading pistol to be accepted by a major world army anywhere on
+    the globe. Its major operator became the Austro-Hungarian Army in World War 1.
+    By modern standards the M07 took on a most utilitarian appearance, as it had
+    a slim forward design with a bulky rear body. The pistol grip was thin with a
+    diagonal grip pattern for optimal ergonomics. It was surprisingly light for having
+    many capabilities, weighing in at 2 pounds when empty.\r"
+  bullet: {fileID: 0}
+  bulletObj: {fileID: 0}
+  price: 0
