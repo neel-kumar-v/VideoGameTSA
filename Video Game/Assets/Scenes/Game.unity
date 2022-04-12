@@ -4234,6 +4234,7 @@ GameObject:
   - component: {fileID: 546710726}
   - component: {fileID: 546710732}
   - component: {fileID: 546710734}
+  - component: {fileID: 546710733}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -4325,6 +4326,12 @@ MonoBehaviour:
   canGrenadeShoot: 0
   follow: {fileID: 768914011}
   inverse: 0
+  isController: 1
+  turn: {fileID: 546710733}
+  xPos: 0
+  yPos: 0
+  pos: {x: 0, y: 0, z: 0}
+  box: {fileID: 927119358}
 --- !u!135 &546710728
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4462,6 +4469,18 @@ MonoBehaviour:
   isPlayer: 1
   dead: 0
   startArmor: 0
+--- !u!114 &546710733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546710725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e46b801ea53cf439337561c2c9912a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &546710734
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17196,6 +17215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1676117528}
   controller: {fileID: 546710727}
+  cam: {fileID: 1687258584}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0

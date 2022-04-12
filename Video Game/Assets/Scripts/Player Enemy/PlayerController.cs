@@ -53,6 +53,15 @@ public class PlayerController : MonoBehaviour
 
     public bool inverse;
 
+    public bool isController = false;
+
+    public RightJoyTurn turn;
+
+    public float xPos;
+    public float yPos;
+    public Vector3 pos;
+    private Vector3 turnVelocity = Vector3.zero;
+    public RectTransform box;
 
     public void Start() {
         canShoot = true;
@@ -89,7 +98,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(!canMove) return;
-        Rotate();
+        if(isController) {
+            Turn();
+        } else {
+            Rotate();
+        }
         if(Input.GetButton("Fire1") && canShoot) {
             if(EventSystem.current.IsPointerOverGameObject()) return;
             canShoot = false;
@@ -104,6 +117,18 @@ public class PlayerController : MonoBehaviour
          canShoot = true;
      }
 
+    
+    public void Turn()
+    {
+        yPos += Input.GetAxis("Vertical1");
+        xPos += -Input.GetAxis("Horizontal1");
+
+        pos = Vector3.SmoothDamp(pos, new Vector3(xPos, 2f, yPos), ref turnVelocity, 0.04f);
+        direction = (pos - transform.position).normalized;
+        rotGoal = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, turnSpeed);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -115,9 +140,6 @@ public class PlayerController : MonoBehaviour
     public void Move() {
         if (overrideVelocity) {return;}
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        if (isPlayer2) {
-            movement = new Vector3(Input.GetAxisRaw("Horizontal1"), 0f, Input.GetAxisRaw("Vertical1"));
-        }
         rb.velocity = 1.17f * movement * speed * (inverse ? -1f : 1f);
     }
 
