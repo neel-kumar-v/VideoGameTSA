@@ -43,7 +43,16 @@ public class PlayerController : MonoBehaviour
     Vector3 movement;
 
     [HideInInspector] public bool canShoot; 
-    bool canMove;
+
+    [HideInInspector] public bool canMove;
+
+    public void ToggleCanMove(bool plsMove) {
+        canMove = plsMove;
+    }
+    public void ToggleCanShoot(bool plsShoot) {
+        canShoot = plsShoot;
+    }
+
     bool overrideVelocity = false;
 
     public Bullet b;
@@ -56,6 +65,10 @@ public class PlayerController : MonoBehaviour
     public bool isController = false;
 
     public RightJoyTurn turn;
+
+    public static float sensitivity = 1f;
+
+    public float deadzone;
 
     public float xPos;
     public float yPos;
@@ -120,8 +133,17 @@ public class PlayerController : MonoBehaviour
     
     public void Turn()
     {
-        yPos += Input.GetAxis("Vertical1");
-        xPos += -Input.GetAxis("Horizontal1");
+        float x = Input.GetAxis("Horizontal1");
+        if(x < deadzone && x > -deadzone) {
+            x = 0;
+        }
+        float y = Input.GetAxis("Vertical1");
+        if(y < deadzone && y > -deadzone) {
+            y = 0;
+        }
+
+        yPos += y * sensitivity;
+        xPos += -x * sensitivity;
 
         pos = Vector3.SmoothDamp(pos, new Vector3(xPos, 2f, yPos), ref turnVelocity, 0.04f);
         direction = (pos - transform.position).normalized;
@@ -139,8 +161,23 @@ public class PlayerController : MonoBehaviour
 
     public void Move() {
         if (overrideVelocity) {return;}
-        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        rb.velocity = 1.17f * movement * speed * (inverse ? -1f : 1f);
+        if(isController) {
+
+            float x = Input.GetAxisRaw("Horizontal2");
+            if(x < deadzone && x > -deadzone) {
+                x = 0;
+            }
+            float y = Input.GetAxisRaw("Vertical2");
+            if(y < deadzone && y > -deadzone) {
+                y = 0;
+            }
+
+            movement = new Vector3(x, 0f, y);
+            rb.velocity = 1.17f * movement * speed * (inverse ? -1f : 1f);
+        } else {
+            movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+            rb.velocity = 1.17f * movement * speed * (inverse ? -1f : 1f);
+        }
     }
 
 

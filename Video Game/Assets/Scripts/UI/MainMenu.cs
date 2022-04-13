@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public class MainMenu : MonoBehaviour
     public static string countryString;
     public static bool controller;
     public Toggle toggle;
+    public Button play;
+
+    public void Start() {
+        play.Select();
+    }
 
     public void Play() {
         if(country.captionText.text == "Choose Country") return;
         SceneManager.LoadScene("Game");
+
     }
     public void UpdateText() {
         countryString = country.captionText.text;
