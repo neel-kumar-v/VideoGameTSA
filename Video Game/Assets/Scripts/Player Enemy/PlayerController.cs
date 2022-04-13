@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     Vector3 movement;
 
     [HideInInspector] public bool canShoot; 
+<<<<<<< Updated upstream
 
     [HideInInspector] public bool canMove;
 
@@ -53,6 +54,9 @@ public class PlayerController : MonoBehaviour
         canShoot = plsShoot;
     }
 
+=======
+    [HideInInspector] public bool canMove;
+>>>>>>> Stashed changes
     bool overrideVelocity = false;
 
     public Bullet b;
