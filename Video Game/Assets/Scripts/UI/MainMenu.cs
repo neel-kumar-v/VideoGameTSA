@@ -31,6 +31,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-
+    public void ToggleControls() {
+        controller = toggle.isOn;
+        Debug.Log(controller);
+    }
 
 }

@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     float reloadTime;
     public float reloadClip;
     public float clipSize;
-    [HideInInspector] public float currentClip;
+    float currentClip;
     public float countdown;
 
     public GameObject grenade;
@@ -98,7 +98,6 @@ public class PlayerController : MonoBehaviour
         b = bullet.GetComponent<Bullet>();
         speed /= b.weight;
         reloadTime = b.reload; 
-        reloadClip = b.reloadClip; 
         clipSize = b.clipSize; 
         currentClip = clipSize;
     }
@@ -204,8 +203,6 @@ public class PlayerController : MonoBehaviour
 
     }
     public IEnumerator Shoot(float time) {
-        currentClip --;
-
         GameObject newBullet = (GameObject) Instantiate(bullet, firePoint.position, firePoint.rotation); 
         newBullet.GetComponent<Bullet>().player = true;
 
@@ -229,10 +226,11 @@ public class PlayerController : MonoBehaviour
         overrideVelocity = false;
         canShoot = true;
 
+        // currentClip --;
         
-        if(currentClip == 0) {
-            StartCoroutine(ReloadPause(reloadClip));
-        }
+        // if(currentClip == 0) {
+        //     StartCoroutine(ReloadPause(reloadClip));
+        // }
     }
 
     public IEnumerator CylinderMove(float duration) {
