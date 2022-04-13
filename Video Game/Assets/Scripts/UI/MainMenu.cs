@@ -10,12 +10,15 @@ public class MainMenu : MonoBehaviour
     public Dropdown country;
     public static string countryString;
     public static bool controller;
+<<<<<<< Updated upstream
     public Toggle toggle;
     public Button play;
 
     public void Start() {
         play.Select();
     }
+=======
+>>>>>>> Stashed changes
 
     public void Play() {
         if(country.captionText.text == "Choose Country") return;
@@ -31,9 +34,6 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void ToggleControls() {
-        controller = toggle.isOn;
-        Debug.Log(controller);
-    }
+
 
 }
