@@ -116,7 +116,7 @@ MonoBehaviour:
   reloadClip: 0
   speed: 20
   force: 0
-  damage: 8
+  damage: 100
   explosive: 0
   explosionDamage: 0
   explosionRadius: 0

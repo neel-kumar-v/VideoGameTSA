@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     float reloadTime;
     public float reloadClip;
     public float clipSize;
-    float currentClip;
+    [HideInInspector] public float currentClip;
     public float countdown;
 
     public GameObject grenade;
@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
     Vector3 movement;
 
     [HideInInspector] public bool canShoot; 
-<<<<<<< Updated upstream
 
     [HideInInspector] public bool canMove;
 
@@ -54,9 +53,6 @@ public class PlayerController : MonoBehaviour
         canShoot = plsShoot;
     }
 
-=======
-    [HideInInspector] public bool canMove;
->>>>>>> Stashed changes
     bool overrideVelocity = false;
 
     public Bullet b;
@@ -102,6 +98,7 @@ public class PlayerController : MonoBehaviour
         b = bullet.GetComponent<Bullet>();
         speed /= b.weight;
         reloadTime = b.reload; 
+        reloadClip = b.reloadClip; 
         clipSize = b.clipSize; 
         currentClip = clipSize;
     }
@@ -207,6 +204,8 @@ public class PlayerController : MonoBehaviour
 
     }
     public IEnumerator Shoot(float time) {
+        currentClip --;
+
         GameObject newBullet = (GameObject) Instantiate(bullet, firePoint.position, firePoint.rotation); 
         newBullet.GetComponent<Bullet>().player = true;
 
@@ -230,11 +229,10 @@ public class PlayerController : MonoBehaviour
         overrideVelocity = false;
         canShoot = true;
 
-        // currentClip --;
         
-        // if(currentClip == 0) {
-        //     StartCoroutine(ReloadPause(reloadClip));
-        // }
+        if(currentClip == 0) {
+            StartCoroutine(ReloadPause(reloadClip));
+        }
     }
 
     public IEnumerator CylinderMove(float duration) {
